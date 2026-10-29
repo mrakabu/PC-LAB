@@ -1,15 +1,15 @@
 mpicc -o prog8 prog8.c
 mpirun -np 4 ./prog8
-*/
+
 
 #include <mpi.h>
 #include <stdio.h>
 
 int main(int argc, char *argv[]) {
     int rank, size;
-    const int N = 8;             // total elements in the array
-    int sendbuf[N];              // root's array to scatter
-    int recvbuf[N / 4];          // buffer for each process (assuming 4 processes)
+    const int N = 8;             
+    int sendbuf[N];              
+    int recvbuf[N / 4];          
     
     MPI_Init(&argc, &argv);      
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
